@@ -15,4 +15,4 @@ My Library
   
 * [My Library](https://korilakkuma.github.io/MyLibrary/)
   
-Copyright 2014 © Tomohiro IKEDA
+Copyright (c) 2014 Tomohiro IKEDA (Korilakkuma)
