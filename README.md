@@ -13,6 +13,6 @@ My Library
 コンピューターサイエンス, Webプログラミング & Webデザインを習得する指針となった  
 数多くの本とともに, この4年間の軌跡を綴っていきたいと思います.  
   
-* [My Library](http://korilakkuma.github.io/MyLibrary/)
-
+* [My Library](https://korilakkuma.github.io/MyLibrary/)
+  
 Copyright 2014 © Tomohiro IKEDA
