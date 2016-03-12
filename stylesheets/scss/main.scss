@@ -206,14 +206,18 @@ a {
         }
 
         nav {
-            position:absolute;
-            z-index:2;
-
             display:block;
             float:left;
 
             margin-top:2rem;
             width:20%;
+
+            &.fixed {
+                position:fixed;
+                top:0px;
+                left:auto;  // origin is parent
+                z-index:2;
+            }
 
             ol {
                 margin-left:2rem;

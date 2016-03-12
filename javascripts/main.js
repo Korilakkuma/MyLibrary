@@ -36,9 +36,9 @@ $(function() {
         }
 
         if (initTop < (scrollTop - marginTop)) {
-            sidebar.css('top', ((scrollTop - marginTop) + 'px'));
+            sidebar.addClass('fixed');
         } else {
-            sidebar.css('top', ((initTop - marginTop) + 'px'));
+            sidebar.removeClass('fixed');
         }
     });
 
