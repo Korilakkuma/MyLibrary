@@ -35,7 +35,7 @@ $(function() {
             $('nav ol li [href="#section-prolog"]').addClass('current-section');
         }
 
-        if (initTop < (scrollTop - marginTop)) {
+        if (initTop < (scrollTop + marginTop)) {
             sidebar.addClass('fixed');
         } else {
             sidebar.removeClass('fixed');
