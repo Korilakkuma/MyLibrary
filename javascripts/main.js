@@ -2,52 +2,16 @@
 
 const BREAKPOINT_1 = 768;
 const BREAKPOINT_2 = 1024;
-const templates    = ['epilogue', '2014', '2013', '2012', '2011', 'prolog'];
-
-function renderTemplate(template) {
-    const div = $('<div />').addClass('loading-animation-container');
-
-    div.append('<img src="images/loading-animation.gif" alt="Now Loading ..." width="25" height="25" />');
-    $('#maincontents').append(div);
-
-    return fetch(`templates/${template}.html`)
-        .then((data) => data.text())
-        .then((html) => {
-            $('#maincontents').append(html);
-
-            if ($('#section-prolog, #section-2011, #section-2012, #section-2013, #section-2014, #section-epilogue').length === templates.length) {
-                $('#section-prolog').appendTo($('#maincontents'));
-                $('#section-2011').insertAfter($('#section-prolog'));
-                $('#section-2012').insertAfter($('#section-2011'));
-                $('#section-2013').insertAfter($('#section-2012'));
-                $('#section-2014').insertAfter($('#section-2013'));
-                $('#section-epilogue').insertAfter($('#section-2014'));
-            }
-        })
-        .catch(console.error)
-        .finally(() => {
-            $('.loading-animation-container').remove();
-        });
-}
 
 if (window.innerWidth < BREAKPOINT_1) {
     // Smartphone
     const THRESHOLD = 200;  // px
 
-    renderTemplate(templates.pop())
-        .then(() => {
-            $(window).scroll(() => {
-                const documentHeight = $(document).height();
-                const scrollPosition = $(window).height() + $(window).scrollTop();
-                const diff           = documentHeight - scrollPosition;
-
-                if (diff < THRESHOLD) {
-                    if (templates.length > 0) {
-                        renderTemplate(templates.pop());
-                    }
-                }
-            });
-        });
+    $(window).scroll(() => {
+        const documentHeight = $(document).height();
+        const scrollPosition = $(window).height() + $(window).scrollTop();
+        const diff           = documentHeight - scrollPosition;
+    });
 } else {
     // Tablet, Desktop
     const OFFSET    = 200;
@@ -55,50 +19,40 @@ if (window.innerWidth < BREAKPOINT_1) {
     const initTop   = sidebar.offset().top;
     const marginTop = parseInt(sidebar.css('margin-top'));
 
-    Promise.all([
-        renderTemplate(templates[0]),
-        renderTemplate(templates[1]),
-        renderTemplate(templates[2]),
-        renderTemplate(templates[3]),
-        renderTemplate(templates[4]),
-        renderTemplate(templates[5])
-    ]).then(() => {
-        if (window.innerWidth < BREAKPOINT_2) {
-            // Tablet
-        } else {
-            // Desktop
-            $(window).scroll(function() {
-                $('nav ol li a').removeClass('current-section');
+    if (window.innerWidth < BREAKPOINT_2) {
+        // Tablet
+    } else {
+        // Desktop
+        $(window).scroll(function() {
+            $('nav ol li a').removeClass('current-section');
 
-                const scrollTop         = $(this).scrollTop();
-                const adjustedScrollTop = scrollTop + OFFSET;
+            const scrollTop         = $(this).scrollTop();
+            const adjustedScrollTop = scrollTop + OFFSET;
 
-                if ($('#section-epilogue').offset().top <= adjustedScrollTop) {
-                    $('nav ol li [href="#section-epilogue"]').addClass('current-section');
-                } else if ($('#section-2014').offset().top <= adjustedScrollTop) {
-                    $('nav ol li [href="#section-2014"]').addClass('current-section');
-                } else if ($('#section-2013').offset().top <= adjustedScrollTop) {
-                    $('nav ol li [href="#section-2013"]').addClass('current-section');
-                } else if ($('#section-2012').offset().top <= adjustedScrollTop) {
-                    $('nav ol li [href="#section-2012"]').addClass('current-section');
-                } else if ($('#section-2011').offset().top <= adjustedScrollTop) {
-                    $('nav ol li [href="#section-2011"]').addClass('current-section');
-                } else if ($('#section-prolog').offset().top <= adjustedScrollTop) {
-                    $('nav ol li [href="#section-prolog"]').addClass('current-section');
-                }
+            if ($('#section-epilogue').offset().top <= adjustedScrollTop) {
+                $('nav ol li [href="#section-epilogue"]').addClass('current-section');
+            } else if ($('#section-2014').offset().top <= adjustedScrollTop) {
+                $('nav ol li [href="#section-2014"]').addClass('current-section');
+            } else if ($('#section-2013').offset().top <= adjustedScrollTop) {
+                $('nav ol li [href="#section-2013"]').addClass('current-section');
+            } else if ($('#section-2012').offset().top <= adjustedScrollTop) {
+                $('nav ol li [href="#section-2012"]').addClass('current-section');
+            } else if ($('#section-2011').offset().top <= adjustedScrollTop) {
+                $('nav ol li [href="#section-2011"]').addClass('current-section');
+            } else if ($('#section-prolog').offset().top <= adjustedScrollTop) {
+                $('nav ol li [href="#section-prolog"]').addClass('current-section');
+            }
 
-                if (initTop < (scrollTop + marginTop)) {
-                    sidebar.addClass('fixed');
-                } else {
-                    sidebar.removeClass('fixed');
-                }
-            });
+            if (initTop < (scrollTop + marginTop)) {
+                sidebar.addClass('fixed');
+            } else {
+                sidebar.removeClass('fixed');
+            }
+        });
 
-            sidebar.find('ol li a').on('click', function() {
-                $('html, body').animate({scrollTop : ($($(this).attr('href')).offset().top + 'px')}, 'fast', 'swing');
-                return false;
-            });
-        }
-    })
-    .catch(console.error);
+        sidebar.find('ol li a').on('click', function() {
+            $('html, body').animate({scrollTop : ($($(this).attr('href')).offset().top + 'px')}, 'fast', 'swing');
+            return false;
+        });
+    }
 }
