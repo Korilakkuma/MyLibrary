@@ -21,21 +21,31 @@
     <link rel="apple-touch-icon-precomposed" href="images/icon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display" type="text/css" media="all" />
-    <link rel="stylesheet" href="stylesheets/css/main.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="app.css" type="text/css" media="all" />
   </head>
   <body>
     <header>
       <h1>My Library</h1>
     </header>
-    <div id="contents">
-      <main id="maincontents">
+    <div class="contents-wrapper">
+      <nav>
+        <ol>
+          <li><a href="#section-prolog">Prolog</a></li>
+          <li><a href="#section-2011">2011</a></li>
+          <li><a href="#section-2012">2012</a></li>
+          <li><a href="#section-2013">2013</a></li>
+          <li><a href="#section-2014">2014</a></li>
+          <li><a href="#section-epilogue">Epilogue</a></li>
+        </ol>
+      </nav>
+      <main>
         <section id="section-prolog" class="fade-in">
           <h1>Prolog</h1>
           <article>
             <p>この Web サイトは, 私がコンピュータサイエンス, 特に Web プログラミング, Web デザインに関わってきた軌跡を紹介しています.</p>
             <p>この Web サイトを制作している時点で, およそ 4 年間コンピュータサイエンス (2011 年度から 2014 年度まで) に関わり, そのうちの 3 年間 (2012 年度から 2014 年度まで) は, ほぼ Web に特化して活動してきました.</p>
             <p>もちろん, これからもその活動は続いていきますが, 1 つの区切りとして, 4 年間の軌跡を残しておきたいと考えました.</p>
-            <p>コンピュータサイエンス, そして, Web プログラミング, Web デザインを習得する指針となった数多くの本とともに, 4 年間の軌跡を綴っていきたいと思います.</p>
+            <p>コンピュータサイエンス, Web プログラミング, Web デザインを習得する指針となった数多くの本とともに, 4 年間の軌跡を綴ります.</p>
           </article>
           <!-- /article -->
         </section>
@@ -314,7 +324,7 @@
         <section id="section-epilogue" class="fade-in">
           <h1>Epilogue</h1>
           <article>
-            <p>この 4 年間, 特に, Web の世界に入った 3 年間は, これまでの人生のなかで比較にならないぐらい充実していました. 病気をしていたので, その点でつらかったことはたくさんありましたが, それでもそう言い切れるぐらい充実していました. そして, この 4 年間が自分にとって本当の大学だったような気がします.</p>
+            <p>この 4 年間は, これまでの人生のなかで比較にならないぐらい充実していました. 病気をしていたので, それでつらかったことはたくさんありましたが, それでもそう言い切れるぐらい充実していました. この 4 年間が自分にとって本当の大学だったような気がします.</p>
             <p>なんだかんだで運がよかったです.</p>
             <p> Web の世界に入った時は, Web がアプリケーションプラットフォームに転換する黎明期であり, JavaScript が Web の標準技術として君臨しはじめたころでした. そういうタイミングであったからこそ, Web Audio API の先駆者となることができました.</p>
             <p>そして ... なにより周りの人に恵まれていたと思います. 家族, 毎日のように通った図書館のスタッフの方々, 病院の先生, コンビーズの方々, Web Music Developers JP の方々 ...</p>
@@ -323,16 +333,6 @@
         </section>
         <!-- /#section-epilogue -->
       </main>
-      <nav>
-        <ol>
-          <li><a href="#section-prolog">Prolog</a></li>
-          <li><a href="#section-2011">2011</a></li>
-          <li><a href="#section-2012">2012</a></li>
-          <li><a href="#section-2013">2013</a></li>
-          <li><a href="#section-2014">2014</a></li>
-          <li><a href="#section-epilogue">Epilogue</a></li>
-        </ol>
-      </nav>
     </div>
     <footer>
       <small>Copyright (c) 2011, 2012, 2013, 2014 Tomohiro IKEDA</small>
