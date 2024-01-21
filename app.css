@@ -21,16 +21,11 @@ body {
 }
 
 body {
-  font-family:
-  "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
-  "メイリオ", Meiryo,
-  Osaka,
-  "ＭＳ Ｐゴシック", "MS PGothic",
-  sans-serif;
   display: grid;
   grid-template-rows: repeat(3, auto);
   grid-row-gap: 32px;
 
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   line-height: 2;
   color: #999;
 
