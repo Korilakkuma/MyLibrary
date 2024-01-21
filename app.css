@@ -109,13 +109,11 @@ main > section article:last-of-type {
 
 .book-list {
   display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.book-list > li {
-  margin-top: 16px;
 }
 
 .embed-container {
@@ -223,13 +221,5 @@ a:hover {
 
   footer {
     grid-area: 3 / 1 / 4 / 3;
-  }
-
-  .book-list {
-    display: block;
-  }
-
-  .book-list > li {
-    display: inline-block;
   }
 }
