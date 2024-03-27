@@ -10,4 +10,6 @@ My Library
   
 [My Library](https://korilakkuma.github.io/MyLibrary/)
   
+また, ビジュアル的な紹介として, [ブクログ](https://booklog.jp/users/rilakkuma3x) の本棚で紹介しています.
+  
 Copyright (c) 2014 Tomohiro IKEDA (Korilakkuma)
